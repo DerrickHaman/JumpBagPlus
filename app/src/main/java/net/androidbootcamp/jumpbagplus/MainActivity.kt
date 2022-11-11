@@ -58,40 +58,52 @@ class MainActivity : AppCompatActivity() {
             //check that spinner data is being stored for use
             //Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
 
-            psi = findViewById(R.id.text_input_PSI)
+            psi = findViewById<EditText?>(R.id.text_input_PSI)
             lpm = findViewById(R.id.text_input_LPM)
+            val psiString = psi.text.toString()
+            val psiInt = psiString.toIntOrNull()
+            val lpmString = lpm.text.toString()
+            val lpmInt = lpmString.toIntOrNull()
 
             //check to make sure psi is not null before performing calculation
-            if (psi.text.toString().isEmpty()) {
+            if (psiString.isEmpty()) {
                 Toast.makeText(this, "Please enter a PSI.", Toast.LENGTH_SHORT).show()
-            } else {
+            } else if (psiInt is Int) {
                 //check to make sure lpm is not null
-                if (lpm.text.toString().isEmpty()) {
+                if (lpmString.isEmpty()) {
                     Toast.makeText(this, "Please enter a LPM.", Toast.LENGTH_SHORT).show()
-                } else {
-                    //switch statement for oxygen algorithm
-                    when (spinnerResult) {
-                        "D cylinder" -> {
-                            Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                } else if (lpmInt is Int) {
+                    try {
+                        //switch statement for oxygen algorithm
+                        when (spinnerResult) {
+                            "D cylinder" -> {
+                                Toast.makeText(this, psiString, Toast.LENGTH_SHORT).show()
+                            }
+                            "E cylinder" -> {
+                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                            }
+                            "M cylinder" -> {
+                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                            }
+                            "G cylinder" -> {
+                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                            }
+                            "H/K cylinder" -> {
+                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                            }
+                            else -> {
+                                Toast.makeText(this,"No tank size was selected.",Toast.LENGTH_SHORT).show()
+                            }
                         }
-                        "E cylinder" -> {
-                            Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
-                        }
-                        "M cylinder" -> {
-                            Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
-                        }
-                        "G cylinder" -> {
-                            Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
-                        }
-                        "H/K cylinder" -> {
-                            Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
-                        } else -> {
-                            Toast.makeText(this, "No tank size was selected.", Toast.LENGTH_SHORT)
-                                .show()
-                        }
+                    } catch (e: NumberFormatException) {Toast.makeText(this,"Please enter a valid number for PSI.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-
+                } else {
+                    Toast.makeText(this, "Please enter a valid number for LPM.", Toast.LENGTH_SHORT).show()
                 }
+            } else {
+            Toast.makeText(this, "Please enter a valid number for PSI.", Toast.LENGTH_SHORT).show()
             }
         }
     }
