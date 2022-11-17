@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
                                 Toast.makeText(this,"No tank size was selected.",Toast.LENGTH_SHORT).show()
                             }
                         }
-                    } catch (e: NumberFormatException) {Toast.makeText(this,"Please enter a valid number for PSI.",
+                    } catch (e: NumberFormatException) {Toast.makeText(this,"Please enter a valid number for PSI and LPM.",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
