@@ -2,6 +2,8 @@
     <string name="app_name">JumpBagPlus</string>
     <string name="psi_instruction">Enter the remaining pounds per square inch(PSI) of the tank:</string>
     <string name="psi_hint">Enter PSI</string>
+    <string name="switch_label">200psi/500psi</string>
+    <string name="CalcBtn">Calculate</string>
     <string name="lpm_instruction">Enter the flow rate in liters per minute(LPM):</string>
     <string name="lpm_hint">Enter LPM</string>
     <string name="tankSize_instruction">Select a tank size:</string>
@@ -12,5 +14,5 @@
         <item>G cylinder</item>
         <item>H/K cylinder</item>
     </string-array>
-    <string name="switch_instruction">Select between a reserve oxygen supply of 200psi or 500psi</string>
+    <string name="switch_instruction">Select a reserve oxygen supply. 200psi is the default setting.</string>
 </resources>

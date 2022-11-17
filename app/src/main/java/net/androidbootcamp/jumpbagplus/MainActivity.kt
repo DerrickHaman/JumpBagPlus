@@ -9,25 +9,27 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
+    // store input from PSI and LPM text boxes
     private lateinit var psi : EditText
     private lateinit var lpm : EditText
+    internal lateinit var btnSwitch : Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //access items from Strings.xml array
+        // store switch choice
+        var reserveOx = 200
+        //access data from Strings.xml array
         val tanks = resources.getStringArray(R.array.tankSizeArray)
-        // access input for PSI
-        //var psi : EditText? = null
-        // access input for LPM
-        //var lpm : EditText? = null
         //create button
         val calcBtn = findViewById<Button>(R.id.btn_calculate)
         //create variable to store data from spinner
         var spinnerResult = ""
         //access the spinner
         val spinner = findViewById<Spinner>(R.id.spTankSize)
+        //access textView for result
+        val resultText = findViewById<TextView>(R.id.txt_solution)
 
         //check the spinner
         if (spinner != null) {
@@ -45,51 +47,111 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
-                    TODO("Not yet implemented")
+                    // This function is intentionally empty because the spinner always has a selection
                 }
 
             }
 
         }
 
+        //create switch listener
+        btnSwitch = findViewById(R.id.reserveOxSwitch)
+        btnSwitch.setOnClickListener {
+            reserveOx = if (btnSwitch.isChecked) {
+                500
+            } else {
+                200
+            }
+        }
+
+
+
         //create button click listener
         calcBtn.setOnClickListener {
 
-            //check that spinner data is being stored for use
-            //Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
-
-            psi = findViewById<EditText?>(R.id.text_input_PSI)
+            psi = findViewById(R.id.text_input_PSI)
             lpm = findViewById(R.id.text_input_LPM)
-            val psiString = psi.text.toString()
-            val psiInt = psiString.toIntOrNull()
-            val lpmString = lpm.text.toString()
-            val lpmInt = lpmString.toIntOrNull()
+            val psiInt = psi.text
+            val lpmInt = lpm.text
+            var timeRemaining = 0f
+            var conversionRate = 0f
+            var cylinderPressure = 0f
+            var flowRate = 0f
 
-            //check to make sure psi is not null before performing calculation
-            if (psiString.isEmpty()) {
+            //check to make sure psi and lpm are not null and are integers
+            if (psiInt.isEmpty()) {
                 Toast.makeText(this, "Please enter a PSI.", Toast.LENGTH_SHORT).show()
-            } else if (psiInt is Int) {
-                //check to make sure lpm is not null
-                if (lpmString.isEmpty()) {
+            } else if (lpmInt.isEmpty()) {
                     Toast.makeText(this, "Please enter a LPM.", Toast.LENGTH_SHORT).show()
-                } else if (lpmInt is Int) {
+                } else {
                     try {
                         //switch statement for oxygen algorithm
                         when (spinnerResult) {
                             "D cylinder" -> {
-                                Toast.makeText(this, psiString, Toast.LENGTH_SHORT).show()
+                                // (Current Cylinder Pressure × Conversion factor) /Flow (L/min) =
+                                // Duration of flow (min).
+                                conversionRate = 0.16f
+                                cylinderPressure = psiInt.toString().toFloat() - reserveOx
+                                flowRate = lpmInt.toString().toFloat()
+                                cylinderPressure = cylinderPressure * conversionRate
+                                timeRemaining = cylinderPressure / flowRate
+
+                                resultText.setVisibility(View.VISIBLE)
+                                resultText.setText("You have " + timeRemaining.toInt().toString() + " minutes remaining.")
+
+
                             }
                             "E cylinder" -> {
-                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                                // (Current Cylinder Pressure × Conversion factor) /Flow (L/min) =
+                                // Duration of flow (min).
+                                conversionRate = 0.28f
+                                cylinderPressure = psiInt.toString().toFloat() - reserveOx
+                                flowRate = lpmInt.toString().toFloat()
+                                cylinderPressure = cylinderPressure * conversionRate
+                                timeRemaining = cylinderPressure / flowRate
+
+                                resultText.setVisibility(View.VISIBLE)
+                                resultText.setText("You have " + timeRemaining.toInt().toString() + " minutes remaining.")
+
                             }
                             "M cylinder" -> {
-                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                                // (Current Cylinder Pressure × Conversion factor) /Flow (L/min) =
+                                // Duration of flow (min).
+                                conversionRate = 1.56f
+                                cylinderPressure = psiInt.toString().toFloat() - reserveOx
+                                flowRate = lpmInt.toString().toFloat()
+                                cylinderPressure = cylinderPressure * conversionRate
+                                timeRemaining = cylinderPressure / flowRate
+
+                                resultText.setVisibility(View.VISIBLE)
+                                resultText.setText("You have " + timeRemaining.toInt().toString() + " minutes remaining.")
+
                             }
                             "G cylinder" -> {
-                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                                // (Current Cylinder Pressure × Conversion factor) /Flow (L/min) =
+                                // Duration of flow (min).
+                                conversionRate = 2.41f
+                                cylinderPressure = psiInt.toString().toFloat() - reserveOx
+                                flowRate = lpmInt.toString().toFloat()
+                                cylinderPressure = cylinderPressure * conversionRate
+                                timeRemaining = cylinderPressure / flowRate
+
+                                resultText.setVisibility(View.VISIBLE)
+                                resultText.setText("You have " + timeRemaining.toInt().toString() + " minutes remaining.")
+
                             }
                             "H/K cylinder" -> {
-                                Toast.makeText(this, spinnerResult, Toast.LENGTH_SHORT).show()
+                                // (Current Cylinder Pressure × Conversion factor) /Flow (L/min) =
+                                // Duration of flow (min).
+                                conversionRate = 3.14f
+                                cylinderPressure = psiInt.toString().toFloat() - reserveOx
+                                flowRate = lpmInt.toString().toFloat()
+                                cylinderPressure = cylinderPressure * conversionRate
+                                timeRemaining = cylinderPressure / flowRate
+
+                                resultText.setVisibility(View.VISIBLE)
+                                resultText.setText("You have " + timeRemaining.toInt().toString() + " minutes remaining.")
+
                             }
                             else -> {
                                 Toast.makeText(this,"No tank size was selected.",Toast.LENGTH_SHORT).show()
@@ -99,14 +161,10 @@ class MainActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                } else {
-                    Toast.makeText(this, "Please enter a valid number for LPM.", Toast.LENGTH_SHORT).show()
                 }
-            } else {
-            Toast.makeText(this, "Please enter a valid number for PSI.", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 }
+
 
 
