@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">JumpBagPlus</string>
+    <string name="splash_txt">Jump Bag Plus</string>
     <string name="psi_instruction">Enter the remaining pounds per square inch(PSI) of the tank:</string>
     <string name="psi_hint">Enter PSI</string>
     <string name="switch_label">200psi/500psi</string>
