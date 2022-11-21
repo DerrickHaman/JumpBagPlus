@@ -1,0 +1,93 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="net.androidbootcamp.jumpbagplus"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:6:5-36:19
+12        android:allowBackup="true"
+12-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:7:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.8.0] C:\Users\derri\.gradle\caches\transforms-3\065dfa018132f0a621878cd66243e674\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+14        android:dataExtractionRules="@xml/data_extraction_rules"
+14-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:8:9-65
+15        android:debuggable="true"
+16        android:extractNativeLibs="false"
+17        android:fullBackupContent="@xml/backup_rules"
+17-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:9:9-54
+18        android:icon="@mipmap/ic_launcher"
+18-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:10:9-43
+19        android:label="@string/app_name"
+19-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:11:9-41
+20        android:roundIcon="@mipmap/ic_launcher_round"
+20-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:12:9-54
+21        android:supportsRtl="true"
+21-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:13:9-35
+22        android:testOnly="true"
+23        android:theme="@style/Theme.JumpBagPlus" >
+23-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:14:9-49
+24        <activity
+24-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:17:9-26:20
+25            android:name="net.androidbootcamp.jumpbagplus.SplashScreen"
+25-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:18:13-41
+26            android:exported="true"
+26-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:20:13-36
+27            android:theme="@style/SplashScreenTheme" >
+27-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:19:13-53
+28            <intent-filter>
+28-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:21:13-25:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:22:17-69
+29-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:22:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:24:17-77
+31-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:24:27-74
+32            </intent-filter>
+33        </activity>
+34        <activity
+34-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:28:9-31:20
+35            android:name="net.androidbootcamp.jumpbagplus.MainActivity"
+35-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:29:13-41
+36            android:exported="true" >
+36-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:30:13-36
+37        </activity>
+38
+39        <meta-data
+39-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:33:9-35:57
+40            android:name="preloaded_fonts"
+40-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:34:13-43
+41            android:resource="@array/preloaded_fonts" />
+41-->C:\Users\derri\OneDrive\Mobile Dev\Android_Projects\JumpBagPlus\app\src\main\AndroidManifest.xml:35:13-54
+42
+43        <provider
+43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\derri\.gradle\caches\transforms-3\4e331c747f82bfb46756f96d7fe9a59c\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+44            android:name="androidx.startup.InitializationProvider"
+44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\derri\.gradle\caches\transforms-3\4e331c747f82bfb46756f96d7fe9a59c\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+45            android:authorities="net.androidbootcamp.jumpbagplus.androidx-startup"
+45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\derri\.gradle\caches\transforms-3\4e331c747f82bfb46756f96d7fe9a59c\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+46            android:exported="false" >
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\derri\.gradle\caches\transforms-3\4e331c747f82bfb46756f96d7fe9a59c\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+47            <meta-data
+47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\derri\.gradle\caches\transforms-3\4e331c747f82bfb46756f96d7fe9a59c\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+48                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\derri\.gradle\caches\transforms-3\4e331c747f82bfb46756f96d7fe9a59c\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+49                android:value="androidx.startup" />
+49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\derri\.gradle\caches\transforms-3\4e331c747f82bfb46756f96d7fe9a59c\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+50            <meta-data
+50-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\derri\.gradle\caches\transforms-3\35943563f449e64621f791c783419b38\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+51                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+51-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\derri\.gradle\caches\transforms-3\35943563f449e64621f791c783419b38\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+52                android:value="androidx.startup" />
+52-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\derri\.gradle\caches\transforms-3\35943563f449e64621f791c783419b38\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+53        </provider>
+54    </application>
+55
+56</manifest>
